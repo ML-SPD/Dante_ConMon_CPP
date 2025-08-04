@@ -2,7 +2,7 @@
 
 ## 目的
 
-本文件旨在記錄透過 Dante DAPI (dapi-4.9.1) 對 Dante 進行 UART 功能測試的過程與發現。
+本文件主要記錄透過 Dante DAPI (dapi-4.9.1) 對 Dante 進行 UART 功能測試的過程與發現。
 
 ## 結論
 
@@ -66,21 +66,6 @@ Got response for request 0x7f7d3271b290: success
 `0x0d5050db & 0x400 = 0`
 
 運算結果為 0，這明確表示該韌體版本**並未宣告**支援序列埠控制。
-
-### 3. 確認製造商資訊
-
-從 `MANF_VERSIONS_STATUS (0x00c0)` 訊息中，我們確認了設備的製造商。
-
-**關鍵日誌 (`MANF_VERSIONS_STATUS`):**
-```
-#EVENT Mon Aug  4 10:08:14 2025: Received status message from 001dc1fffed1d2b7/0000 (UltimoX2-d1d2b7)
-:  chan=status (rx) size=344 aud-version=0x0734 aud-type=0x00c0
-> Audinate message: MANF_VERSIONS_STATUS (0x00c0)
->> manufacturer=4d65696c6f6f6e00
->> manufacturer name="Meiloon Industries"
->> model name="Meiloon"
->> model version=0.0.1
-```
 
 ---
 
