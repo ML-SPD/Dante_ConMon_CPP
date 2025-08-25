@@ -25,8 +25,8 @@
 ## 4. 詞彙儲存邏輯
 
 -   資料庫：MySQL（localhost:3306, database name: aidb, table: translations）
-	還需要什麼資料再跟我說，例如帳號密碼？
-  	
+	
+  	``` SQL
 	id INT AUTO_INCREMENT PRIMARY KEY,
     source_lang VARCHAR(10) NOT NULL COMMENT '來源語言 (zh, en, jp...)',
     target_lang VARCHAR(10) NOT NULL COMMENT '目標語言 (en, zh, jp...)',
@@ -39,7 +39,8 @@
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '建立時間',
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '最後更新時間',
     UNIQUE KEY unique_translation (source_lang, target_lang, source_text)
-    
+    ```
+   
 -   寫入流程：
     -   若詞彙已存在資料庫，不再重複寫入
     -   若詞彙不存在，新增一筆記錄（詞彙本身先存入，翻譯欄位可空白）
